@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "CAR_API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "POST - Criar Veiculo (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"placa\": \"ABC1D23\",\n  \"modelo\": \"Onix\",\n  \"marca\": \"Chevrolet\"\n}"
+        },
+        "url": "http://localhost:3000/veiculos"
+      }
+    },
+    {
+      "name": "GET - Listar Veiculos (200)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/veiculos"
+      }
+    },
+    {
+      "name": "POST - Criar Manutencao (201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Troca de oleo\",\n  \"data\": \"2026-11-24\",\n  \"valor\": 200,\n  \"veiculoId\": 1\n}"
+        },
+        "url": "http://localhost:3000/manutencoes"
+      }
+    },
+    {
+      "name": "GET - Listar Manutencoes (200)",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/manutencoes"
+      }
+    },
+    {
+      "name": "PUT - Atualizar Manutencao (200)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Troca de oleo e filtro\",\n  \"data\": \"2026-11-24\",\n  \"valor\": 260,\n  \"veiculoId\": 1\n}"
+        },
+        "url": "http://localhost:3000/manutencoes/1"
+      }
+    },
+    {
+      "name": "DELETE - Remover Manutencao",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/manutencoes/1"
+      }
+    },
+    {
+      "name": "Erro 400 - Dados Invalidos",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"a\",\n  \"valor\": -10\n}"
+        },
+        "url": "http://localhost:3000/manutencoes"
+      }
+    },
+    {
+      "name": "Erro 400 - ID Invalido",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/manutencoes/abc"
+      }
+    }
+  ]
+}
